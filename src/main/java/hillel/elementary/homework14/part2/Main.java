@@ -9,7 +9,8 @@ public class Main {
         Optional<String> valid = helper.adjustString("politova@oogmail.com");
         Optional<String> nonValid = helper.adjustString("gsjajjajajjaajajajja.com");
 
-        System.out.println(valid.get());
-        System.out.println(nonValid.get());
+        valid.ifPresent(System.out::println);
+
+        nonValid.ifPresent(System.out::println);
     }
 }
