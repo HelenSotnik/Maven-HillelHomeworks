@@ -20,7 +20,7 @@ public class StreamTest {
         proceedWithReferenceMethodsInStream();
     }
 
-    private static void proceedWithEmptyStream() {
+    public static void proceedWithEmptyStream() {
         Optional<String> emptyStr = Stream.empty().map(str -> str + " - empty")
                 .skip(1).findFirst();
 
