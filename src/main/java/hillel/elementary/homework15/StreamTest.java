@@ -24,7 +24,7 @@ public class StreamTest {
         Optional<String> emptyStr = Stream.empty().map(str -> str + " - empty")
                 .skip(1).findFirst();
 
-        System.out.println(emptyStr);
+      emptyStr.ifPresent(System.out::println);
     }
 
     public static void proceedListToSetInStream() {
