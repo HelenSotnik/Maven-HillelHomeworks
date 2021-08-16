@@ -15,9 +15,8 @@ public class TestFunctionalInterfaces {
         Consumer<String> printCharsFromString = (myString) -> printChars(myString.toCharArray());
         printCharsFromString.accept("String");
 
-        Function<Integer, String> changeNumberToString = number -> convert(number);
-        System.out.println(changeNumberToString.apply(5));
-        System.out.println(changeNumberToString.apply(100));
+        System.out.println(convertStringNumberToIntegerFunction(6));
+        System.out.println(convertStringNumberToIntegerFunction(100));
 
         Double number = 90.909837D;
         Supplier<Double> mathRound = () -> Double.valueOf(Math.round(number));
@@ -30,30 +29,12 @@ public class TestFunctionalInterfaces {
         }
     }
 
-    private static String convert(int n) {
-        switch (n) {
-            case 1:
-                return "one";
-            case 2:
-                return "two";
-            case 3:
-                return "three";
-            case 4:
-                return "four";
-            case 5:
-                return "five";
-            case 6:
-                return "six";
-            case 7:
-                return "seven";
-            case 8:
-                return "eight";
-            case 9:
-                return "nine";
-            case 10:
-                return "ten";
-            default:
-                return "unknown";
-        }
+    public static String convertStringNumberToIntegerFunction(int number) {
+        Function<Integer, String> function = key -> {
+
+            String[] values = new String[]{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
+            return key > 0 && key < 11 ? values[key - 1] : "unknown";
+        };
+        return function.apply(number);
     }
 }

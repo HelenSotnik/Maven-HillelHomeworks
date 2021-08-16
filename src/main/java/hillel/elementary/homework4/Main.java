@@ -6,7 +6,8 @@ import hillel.elementary.homework4.utils.Helper;
 
 import java.util.Scanner;
 
-public class Main {
+public class
+Main {
     public static void main(String[] args) {
         String myString = " Art is a life! ";
         char[] array = {' ', 'd', 'e', 'k', 'o', ' '};
