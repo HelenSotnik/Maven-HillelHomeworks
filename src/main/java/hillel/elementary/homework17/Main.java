@@ -3,6 +3,7 @@ package hillel.elementary.homework17;
 import hillel.elementary.homework17.deadlock.Americano;
 import hillel.elementary.homework17.deadlock.Cappuccino;
 import hillel.elementary.homework17.threads.CallableImpl;
+import hillel.elementary.homework17.threads.Helper;
 import hillel.elementary.homework17.threads.RunnableImpl;
 import hillel.elementary.homework17.threads.ThreadImpl;
 
@@ -16,36 +17,36 @@ public class Main {
 
         ThreadImpl thread1 = new ThreadImpl("ThreadImpl");
         thread1.start();
-        thread1.getName();
 
-      /*  try {
+        try {
             thread1.join();
         } catch (Exception e) {
             System.out.println("Exception has been caught" + e);
-        }*/
+        }
 
-        RunnableImpl runnableImpl = new RunnableImpl();
+        RunnableImpl runnableImpl = new RunnableImpl("RunnableImpl");
         Thread thread2 = new Thread(runnableImpl);
         thread2.start();
 
-        thread2.setName("RunnableImpl");
-
-        /*try {
+        try {
             thread2.join();
         } catch (Exception e) {
             System.out.println("Exception has been caught" + e);
-        }*/
+        }
 
-        CallableImpl callableImpl = new CallableImpl();
+        CallableImpl callableImpl = new CallableImpl("CallableImpl");
         FutureTask<String> futureTask = new FutureTask<>(callableImpl);
         Thread thread3 = new Thread(futureTask);
         thread3.start();
 
-        thread3.setName("CallableImpl");
         System.out.println(futureTask.get());
+
+        int counter = Helper.readThreadNameAndIncrVar();
+        System.out.println("Counter value: " + counter);
 
         Thread.sleep(5000);
         System.out.println("Main thread finished.");
+
 
         System.out.println("5.1  RESULT before synchronized method vary from 2828 - 3000");
         System.out.println("5.2  RESULT from synchronized method equals 3000 - 3000");
