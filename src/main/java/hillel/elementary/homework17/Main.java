@@ -56,7 +56,7 @@ public class Main {
         deadlockProcedure();
     }
 
-    private static void deadlockProcedure() {
+    private static synchronized void deadlockProcedure() {
 
         Cappuccino cappuccino = new Cappuccino();
         Americano americano = new Americano();
