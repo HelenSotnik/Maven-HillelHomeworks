@@ -13,6 +13,11 @@ public class Cappuccino {
     }
 
     public synchronized String getAmericanoMessage() {
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return americano.getMessage();
     }
 }
